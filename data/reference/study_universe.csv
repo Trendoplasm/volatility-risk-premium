@@ -1,0 +1,22 @@
+ticker,underlying_symbol,name,security_type,group,size_bucket,dividend_yield,iv_evidence,return_evidence,measured
+INDEX,^GSPC,S&P 500 / VIX index proxy,Index,Large-cap benchmark,Index,0.013,Observed Cboe VIX9D / VIX / VIX3M / VIX1Y term structure,Observed S&P 500 daily closes,TRUE
+AAPL,AAPL,Apple,Single name,Mega-cap technology,Mega-cap,0.005,Observed Cboe VXAPL 30-day index,Observed AAPL daily closes,TRUE
+MSFT,,Microsoft,Single name,Mega-cap technology,Mega-cap,0.007,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+AMZN,AMZN,Amazon,Single name,Mega-cap technology,Mega-cap,0,Observed Cboe VXAZN 30-day index,Observed AMZN daily closes,TRUE
+GOOGL,,Alphabet,Single name,Mega-cap technology,Mega-cap,0.005,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+META,,Meta Platforms,Single name,Mega-cap technology,Mega-cap,0.004,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+TSLA,,Tesla,Single name,High-beta technology,Mega-cap,0,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+UNH,,UnitedHealth Group,Single name,Healthcare,Large-cap,0.014,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+BAC,,Bank of America,Single name,Banking,Large-cap,0.026,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+WFC,,Wells Fargo,Single name,Banking,Large-cap,0.024,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+CRM,,Salesforce,Single name,Software,Large-cap,0.006,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+NOW,,ServiceNow,Single name,Software,Large-cap,0,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+BKNG,,Booking Holdings,Single name,Travel,Large-cap,0.009,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+TGT,,Target,Single name,Retail,Mid/large-cap,0.038,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+HCA,,HCA Healthcare,Single name,Healthcare,Mid/large-cap,0.007,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+IJH,,iShares Core S&P Mid-Cap ETF,ETF,Size / extended market,ETF,0.015,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+IJR,,iShares Core S&P Small-Cap ETF,ETF,Size / extended market,ETF,0.016,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+EFA,,iShares MSCI EAFE ETF,ETF,Developed ex-US,ETF,0.028,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+USMV,,iShares MSCI USA Min Vol Factor ETF,ETF,Minimum volatility,ETF,0.018,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+SMMV,,iShares MSCI USA Small-Cap Min Vol Factor ETF,ETF,Minimum volatility,ETF,0.02,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
+VXF,,Vanguard Extended Market ETF,ETF,Size / extended market,ETF,0.013,No free implied-volatility history; requires licensed option chains,Not downloaded; measurement is blocked by the implied-volatility side,FALSE
