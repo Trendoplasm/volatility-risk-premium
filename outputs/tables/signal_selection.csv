@@ -1,0 +1,5 @@
+rule,period,n,mean_return_on_capital,win_rate,threshold_selected_in_sample_only
+Take every trade,In sample (to 2018),288,0.03432757473737947,0.7430555555555556,True
+Take every trade,Out of sample (2019+),267,0.047341371345553496,0.7415730337078652,True
+Filter: iv_minus_trailing_rv >= -0.1,In sample (to 2018),270,0.03325901949936855,0.7444444444444445,True
+Filter: iv_minus_trailing_rv >= -0.1,Out of sample (2019+),253,0.04654570304113673,0.7470355731225297,True
