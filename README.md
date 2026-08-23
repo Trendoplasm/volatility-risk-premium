@@ -4,9 +4,7 @@ Option-implied volatility is persistently higher than the volatility underlyings
 deliver. This study measures that gap on real market data, then simulates the delta-hedged
 straddle that harvests it and decomposes the profit into the Greeks that produced it.
 
-<!-- Once this repository is on GitHub, replace OWNER/REPO below to activate the CI badge:
-[![CI](https://github.com/OWNER/REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/REPO/actions/workflows/ci.yml)
--->
+[![CI](https://github.com/Trendoplasm/volatility-risk-premium/actions/workflows/ci.yml/badge.svg)](https://github.com/Trendoplasm/volatility-risk-premium/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-blue)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Lint: ruff](https://img.shields.io/badge/lint-ruff-261230)](https://docs.astral.sh/ruff/)
@@ -268,10 +266,27 @@ every trading day, so an open-ended sample would give a slightly different answe
 was downloaded. Freezing the end date is what lets a download taken months later reproduce the
 published numbers exactly.
 
-Bit-for-bit equality is still not the target: the least-squares and interpolation routines depend
-on the host's linear-algebra library, so two runs of identical code can disagree in the last
-floating-point digit. Reproduction is checked against a relative tolerance of `1e-9`, far above
-that noise floor and far below anything that could change a reported statistic.
+Bit-for-bit equality is still not the target, and cannot be. IEEE 754 requires `+ - * / sqrt` to
+be correctly rounded, so those agree everywhere, but it deliberately imposes no such requirement
+on `exp`, `log` or `erf` — each platform's maths library may use its own approximation. The
+least-squares and interpolation routines add to this by depending on the host's linear-algebra
+library, where floating-point addition is not associative and a different summation order gives a
+different last digit. Identical code on macOS and on Linux therefore disagrees at around `1e-13`
+relative.
+
+Two values are treated as agreeing when
+
+```text
+|a - b| <= atol + rtol * max(|a|, |b|)
+```
+
+with `rtol = 1e-9` and `atol = 1e-10`. The absolute term is not decoration. Several exported
+columns are the *residual of an identity* whose correct value is zero — `attribution_error`
+reports how far the Greek decomposition missed the realised profit, and a correct run puts it at
+`1e-14`. Comparing `1e-14` against `0.0` relatively gives a difference of 100%, so a relative-only
+check fails a study that in fact reproduced perfectly. The floor sits seven orders of magnitude
+below the smallest quantity this study reports, so it cannot mask a real difference. Both
+behaviours are covered by tests in `tests/test_verify.py`.
 
 `outputs/summary.json` records the configuration, the cost model, and which securities were
 measured, so the exact basis of the committed results is documented.
